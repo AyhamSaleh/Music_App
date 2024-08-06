@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), ProgressOperations {
         lateinit var progress: ProgressOperations
     }
 
-    val requestPermissionLauncher =
+    private val requestPermissionLauncher =
         this.registerForActivityResult(
             ActivityResultContracts.RequestPermission()
         ) { isGranted: Boolean ->

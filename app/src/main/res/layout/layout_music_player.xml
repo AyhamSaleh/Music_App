@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     app:strokeColor="@color/white"
     app:strokeWidth="1dp"
     app:cardCornerRadius="30dp"
@@ -81,7 +80,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/shpe_orange_background">
+                android:background="@drawable/shape_orange_background">
 
                 <ImageView
                     android:id="@+id/musicButtonImage"

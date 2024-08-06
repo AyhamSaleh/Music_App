@@ -26,14 +26,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MusicViewModel @Inject constructor(private val musicRepo: MusicRepo) : ViewModel() {
-    private val TAG = "MusicViewModel"
+
 
     private val _musics: MutableStateFlow<Resource<List<MyMusic.Music>>> =
         MutableStateFlow(Resource.Loading())
     val musics: StateFlow<Resource<List<MyMusic.Music>>> = _musics
-
-//    private val _selectedMusic:MutableStateFlow<Resource<MyMusic.Music>> =MutableStateFlow(Resource.Idle())
-//    val selectedMusic:StateFlow<Resource<MyMusic.Music>> = _selectedMusic
 
     private val _selectedMusic: MutableStateFlow<MyMusic.Music?> = MutableStateFlow(null)
     val selectedMusic: StateFlow<MyMusic.Music?> = _selectedMusic
@@ -41,9 +38,6 @@ class MusicViewModel @Inject constructor(private val musicRepo: MusicRepo) : Vie
     private val _bitmap: MutableStateFlow<Resource<Bitmap>> =
         MutableStateFlow(Resource.Loading())
     val bitmap: StateFlow<Resource<Bitmap>> = _bitmap
-
-    //    private val _musicProgress: MutableStateFlow<Int> = MutableStateFlow(0)
-//    val musicProgress: StateFlow<Int> = _musicProgress
 
     fun getMusic() {
         viewModelScope.launch {
@@ -69,20 +63,8 @@ class MusicViewModel @Inject constructor(private val musicRepo: MusicRepo) : Vie
         }
     }
 
-//    fun changeMusicProgress(exoPlayer: ExoPlayer) {
-//        viewModelScope.launch {
-//            _musicProgress.emit(
-//                ((exoPlayer.currentPosition.toFloat().div(exoPlayer.duration.toFloat()).times(
-//                    exoPlayer.duration / 1000
-//                )).toInt())
-//            )
-//        }
-//
-//    }
-
 
     fun audioProgress(exoPlayer: ExoPlayer) = flow {
-        Log.d(TAG, "audioProgress: ${exoPlayer.duration}")
         while (true) {
             emit(
                 ((exoPlayer.currentPosition.toFloat().div(exoPlayer.duration.toFloat()).times(
